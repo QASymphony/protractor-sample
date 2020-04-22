@@ -1,0 +1,25 @@
+{
+  "name": "protractor-sample",
+  "version": "1.0.0",
+  "description": "This is sample Protractor project for integrating with Universal Agent.",
+  "main": "index.js",
+  "scripts": {
+    "setup": "npm install",
+    "start-webdriver": "webdriver-manager clean && webdriver-manager update && webdriver-manager start",
+    "test": "protractor conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QASymphony/protractor-sample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QASymphony/protractor-sample/issues"
+  },
+  "homepage": "https://github.com/QASymphony/protractor-sample#readme",
+  "dependencies": {
+    "concurrently": "^5.1.0",
+    "protractor": "^5.4.4"
+  }
+}
