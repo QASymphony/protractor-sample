@@ -1,5 +1,5 @@
 // run this command in Terminal (Mac) or Command Prompt (Windows) to execute test using nodejs: 
-// node test.js
+// path/to/protractor-sample $ node test.js
 
 var http = require("http");
 const RETRY_THRESHOLDS = 10; // will retry 10 times (10 secods) to check for WebDriver availability
