@@ -21,10 +21,10 @@ describe('Protractor Demo App', function() {
     expect(latestResult.getText()).toEqual('3');
   });
 
-  it('should add four and six', function() {
-    // Fill this in.
-    expect(latestResult.getText()).toEqual('10');
-  });
+  // it('should add four and six', function() {
+  //   // Fill this in.
+  //   expect(latestResult.getText()).toEqual('10');
+  // });
 
   it('should read the value from an input', function() {
     firstNumber.sendKeys(1);
