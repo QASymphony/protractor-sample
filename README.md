@@ -139,5 +139,5 @@ waitForWebDriverReady(webDriverRequestOptions, (ready) => {
 });
 ```
 6. Click Save to finish creating the agent. You will be returned back to the Automation Host home page
-7. From Agent list, locate the agent **Protractor Universal Agent** we just created. Click on Action icon in the last column and select Run Now
-8. From the opening run agent dialog, click Execute to execute the agent
+7. From Agent list, locate the agent **Protractor Universal Agent** you just created. Click on action icon in the last column and select `Run Now`
+8. From the run agent dialog, click Execute to execute the agent
