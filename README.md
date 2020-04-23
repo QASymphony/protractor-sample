@@ -104,12 +104,12 @@ execSync('npm run setup', {
 });
 
 /* 
-* start webdriver asynchronously 
+* start webdriver asynchronously and keep references to children processes in order to terminate them later
 */
 var childProcesses = spawn('npm', ['run', 'start-webdriver'], { 
-	detached: true,
-	cwd: process.cwd(),
-	stdio: 'inherit'
+  detached: true,
+  cwd: process.cwd(),
+  stdio: 'inherit'
 });
 
 var webDriverRequestOptions = {
