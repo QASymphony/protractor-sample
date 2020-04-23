@@ -11,7 +11,9 @@ This repo demonstrates how to integrate Protrator with qTest Automation Host's U
 
 ## Setup
 1. Open Terminal (for Mac or Linux), or Command Prompt if you are on Windows
-2. Navigate to source code folder at `/path/to/protractor-sample/`
+2. Navigate to source code folder
+    1. Mac or Linux: `cd /usr/local/var/protractor-sample`
+    2. Windows: `cd "D:\protractor-sample"`
 3. Run this command to install required node modules: `npm run setup`
 
 ## Run Protractor test from command line
