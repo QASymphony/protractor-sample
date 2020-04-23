@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/QASymphony/protractor-sample#readme",
   "dependencies": {
-    "concurrently": "^5.1.0",
     "protractor": "^5.4.4"
+  },
+  "devDependencies": {
+    "jasmine-reporters": "^2.3.2"
   }
 }

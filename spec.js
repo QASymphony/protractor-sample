@@ -32,4 +32,11 @@ describe('Protractor Demo App', function() {
     firstNumber.sendKeys(1);
     expect(firstNumber.getAttribute('value')).toEqual('1');
   });
+
+  it('this is a failed test case', function() {
+    firstNumber.sendKeys(5);
+    secondNumber.sendKeys(5);
+    goButton.click();
+    expect(latestResult.getText()).toEqual('11');
+  });
 });
