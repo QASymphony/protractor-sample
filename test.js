@@ -5,20 +5,21 @@ var http = require("http");
 const RETRY_THRESHOLDS = 10; // will retry 10 times (10 secods) to check for WebDriver availability
 let retryCount = 0;
 function waitForWebDriverReady(options, callback) {
-  retryOrStop = () => {
+  var retryOrStop = () => {
     if (retryCount < RETRY_THRESHOLDS) {
       retryCount++;
       // wait for 1 second and retry
-      setTimeout(() => { waitForWebDriverReady(options, callback) }, 1000);
+      return setTimeout(() => { waitForWebDriverReady(options, callback) }, 1000);
     } else {
       return callback(false);
     }
   }
   const req = http.request(options, res => {
+    // webdriver returns 302 Redirect status code when it's ready
     if (res.statusCode === 302) {
       return callback(true);
     } else {
-      retryOrStop();
+      return retryOrStop();
     }
   });
   req.on('error', (err) => {

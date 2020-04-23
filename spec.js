@@ -5,7 +5,7 @@ describe('Protractor Demo App', function() {
   var latestResult = element(by.binding('latest'));
 
   beforeEach(function() {
-    browser.get('http://juliemr.github.io/protractor-demo/');
+    browser.get('https://juliemr.github.io/protractor-demo/');
   });
 
   it('should have a title', function() {
