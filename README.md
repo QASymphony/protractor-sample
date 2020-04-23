@@ -141,12 +141,16 @@ waitForWebDriverReady(webDriverRequestOptions, (ready) => {
 6. Path to Results: enter path to test result folder that is relative to the source folder
 - Mac: enter `/usr/local/var/protractor-sample/test-results`
 - Windows: enter `D:\protractor-sample\test-results`
-7. Result Parser: select `JUnit for Java (built-in)`
-You agent now look like below
+7. Result Parser: select `JUnit for Java (built-in)`. Your agent now look like below
+
 ![Protractor Universal Agent](/docs/protractor-agent.png)
+
 8. Click Save to finish creating the agent. You will be returned back to the Automation Host home page
 9. From Agent list, locate the agent **Protractor Universal Agent** you just created. Click on action icon in the last column and select `Run Now`
 10. From the run agent dialog, click Execute to execute the agent.
+
 ![Run Agent](/docs/run-now.png)
+
 11. When the execution finished, the test results will be submitted to qTest, as below screenshot
+
 ![Test Result](/docs/test-results.png)
