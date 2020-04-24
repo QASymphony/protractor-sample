@@ -72,7 +72,7 @@ var http = require("http");
 const RETRY_THRESHOLDS = 10;
 let retryCount = 0;
 function waitForWebDriverReady(options, callback) {
-  retryOrStop = () => {
+  var retryOrStop = () => {
     if (retryCount < RETRY_THRESHOLDS) {
       retryCount++;
       // wait for 1 second and retry
@@ -82,7 +82,7 @@ function waitForWebDriverReady(options, callback) {
     }
   }
   const req = http.request(options, res => {
-    // if WebDriver is ready, request to http://localhost:4444/wd/hub will response 302 status code (redirect)
+  	// webdriver returns 302 Redirect status code when it's ready
     if (res.statusCode === 302) {
       return callback(true);
     } else {
@@ -104,12 +104,12 @@ execSync('npm run setup', {
 });
 
 /* 
-* start webdriver asynchronously and keep references to children processes in order to terminate them later
+* start webdriver asynchronously 
 */
 var childProcesses = spawn('npm', ['run', 'start-webdriver'], { 
-  detached: true,
-  cwd: process.cwd(),
-  stdio: 'inherit'
+	detached: true,
+	cwd: process.cwd(),
+	stdio: 'inherit'
 });
 
 var webDriverRequestOptions = {
@@ -119,11 +119,38 @@ var webDriverRequestOptions = {
   path: '/wd/hub',
   method: 'GET'
 };
+
+// let's do our biz
 waitForWebDriverReady(webDriverRequestOptions, (ready) => {
   try {
     if (ready) {
       console.log('Kickoff Protractor test...');
-      execSync('npm run test', {
+      // build protractor execute command (https://stackoverflow.com/a/50310279)
+      // 1. if there is no test case being specified, the command is: `npm run test`
+      // 2. else, the command should be like this: `npm run test -- --grep="<test case name 1>|<test case name 2>|<test case name n>"`
+      let testCommand = 'npm run test';
+      let testcases_ac = $TESTCASES_AC;
+      if (testcases_ac && testcases_ac.trim() !== "") {
+        let testcaseIncludingSpecnames = testcases_ac.split(',');
+        if (testcaseIncludingSpecnames.length > 0) {
+          let testcaseNamesOnly = [];
+          testcaseIncludingSpecnames.forEach(item => {
+            item = item.trim();
+            let i = item.indexOf('#');
+            if (i > 0) {
+              // extract test case name
+              let testcaseName = item.substring(i + 1).trim();
+              // push test case name to the array
+              testcaseNamesOnly.push(testcaseName);
+            }
+          });
+          // if there are test case names to be executed, rebuild the execute command
+          if (testcaseNamesOnly.length > 0) {
+            testCommand += ' -- --grep="' + testcaseNamesOnly.join('|') + '"';
+          }
+        }
+      }
+      execSync(testCommand, {
         cwd: process.cwd(),
         stdio: 'inherit'
       });
