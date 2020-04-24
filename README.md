@@ -125,15 +125,23 @@ waitForWebDriverReady(webDriverRequestOptions, (ready) => {
   try {
     if (ready) {
       console.log('Kickoff Protractor test...');
-      // build protractor execute command (https://stackoverflow.com/a/50310279)
+      // build protractor execute command, what it does:
       // 1. if there is no test case being specified, the command is: `npm run test`
-      // 2. else, the command should be like this: `npm run test -- --grep="<test case name 1>|<test case name 2>|<test case name n>"`
+      // 2. else, the command should be like this: `npm run test -- --grep="<test case name 1>|<test case name 2>|<test case name n>"`. Reference: https://stackoverflow.com/a/50310279
+
+      // this is the default execute command that will run all specs
       let testCommand = 'npm run test';
+      // get scheduled test cases' automation content from magic variable $TESTCASES_AC
       let testcases_ac = $TESTCASES_AC;
+      // if there is/are test cases/runs being scheduled, the testcases_ac
+      // will have value something like: "<spec name 1>#<test case name 1>,<spec name 2>#<test case name 2>,<spec name N>#<test case name N>"
       if (testcases_ac && testcases_ac.trim() !== "") {
+        // split testcases_ac into into array, each item now has value: <spec name>#<test case name>
         let testcaseIncludingSpecnames = testcases_ac.split(',');
         if (testcaseIncludingSpecnames.length > 0) {
+	  // this array will hold final test cases
           let testcaseNamesOnly = [];
+	  // loop thru all item in the array, and grab the test case bame in it
           testcaseIncludingSpecnames.forEach(item => {
             item = item.trim();
             let i = item.indexOf('#');
@@ -144,7 +152,7 @@ waitForWebDriverReady(webDriverRequestOptions, (ready) => {
               testcaseNamesOnly.push(testcaseName);
             }
           });
-          // if there are test case names to be executed, rebuild the execute command
+          // if there are test case names in the arracy, rebuild the execute command to execute them
           if (testcaseNamesOnly.length > 0) {
             testCommand += ' -- --grep="' + testcaseNamesOnly.join('|') + '"';
           }
