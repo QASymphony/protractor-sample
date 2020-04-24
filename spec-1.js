@@ -1,4 +1,4 @@
-describe('Protractor Demo App', function() {
+describe('Spec 1', function() {
   var firstNumber = element(by.model('first'));
   var secondNumber = element(by.model('second'));
   var goButton = element(by.id('gobutton'));
