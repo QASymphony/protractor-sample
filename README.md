@@ -76,7 +76,7 @@ function waitForWebDriverReady(options, callback) {
     if (retryCount < RETRY_THRESHOLDS) {
       retryCount++;
       // wait for 1 second and retry
-      setTimeout(() => { waitForWebDriverReady(options, callback) }, 1000);
+      return setTimeout(() => { waitForWebDriverReady(options, callback) }, 1000);
     } else {
       return callback(false);
     }
