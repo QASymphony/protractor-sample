@@ -31,7 +31,7 @@ Still on Terminal, run this command to start WebDriver: `npm run start-webdriver
 
 ## Integrate Protractor test with Universal Agent
 1. [Download and install qTest Automation Host](https://support.tricentis.com/community/manuals_detail.do?lang=en&version=On-Demand&module=Tricentis%20qTest%20On-Demand&url=qtest_launch/qtest_ahub_2_user_guides/download_qtest_automation_host2.htm)
-2. Open web browser and navigate to Automation Host UI at http://localhost:6789 
+2. Open web browser and navigate to Automation Host UI at http://localhost:6789 (assuming you installed automation host in the default port, which is 6789. Otherwise, make sure you change the port number 6789 to your desired port number.
 3. Select `+ Add` button to create a new agent.
 4. On New Agent dialog, enter the followings:
 - Agent Name: Protractor Universal Agent
