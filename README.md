@@ -86,11 +86,11 @@ function waitForWebDriverReady(options, callback) {
     if (res.statusCode === 302) {
       return callback(true);
     } else {
-      retryOrStop();
+      return retryOrStop();
     }
   });
   req.on('error', (err) => {
-    retryOrStop();
+    return retryOrStop();
   });
   req.end();
 };
