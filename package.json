@@ -2,7 +2,7 @@
   "name": "protractor-sample",
   "version": "1.0.0",
   "description": "This is sample Protractor project for integrating with Universal Agent.",
-  "main": "index.js",
+  "main": "test.js",
   "scripts": {
     "setup": "npm install",
     "start-webdriver": "webdriver-manager clean && webdriver-manager update && webdriver-manager start",
