@@ -60,14 +60,6 @@ waitForWebDriverReady(webDriverRequestOptions, (ready) => {
       // 1. if there is no test case being specified, the command is: npm run test
       // 2. else, the command should be like this: npm run test -- --grep="<test case name 1>|<test case name 2>|<test case name n>"
       let testCommand = 'npm run test';
-      let testcases_ac = 'Spec 1#should add one and two,Spec 2#should add two and three,Spec 2#this is another failed test case';
-      if (testcases_ac && testcases_ac !== "") {
-        let testcases = testcases_ac.split(',');
-        let array = [];
-      }
-      
-      
-      
       execSync(testCommand, {
         cwd: process.cwd(),
         stdio: 'inherit'
