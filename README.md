@@ -67,7 +67,7 @@ if not exist "D:\protractor-sample" (
     1. Mac or Linux: `/usr/local/var/protractor-sample`
     2. Windows: `D:\protractor-sample`  
 - Enter the scripts below to the code area of Execute Command
-```
+```javascript
 var http = require("http");
 const RETRY_THRESHOLDS = 10;
 let retryCount = 0;
