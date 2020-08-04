@@ -39,7 +39,7 @@ Still on Terminal, run this command to start WebDriver: `npm run start-webdriver
 - Agent Type: Universal Agent
 - Pre-Execute Scripts: enter the following script dependent on your Operating System
 
-**Mac**
+**Mac/Linux**
 ```
 #!/bin/bash
 if [ ! -d "/usr/local/var/protractor-sample" ]
