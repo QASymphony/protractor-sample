@@ -16,12 +16,13 @@ This repo demonstrates how to integrate Protrator with qTest Automation Host's U
     1. Mac or Linux: `cd /usr/local/var/protractor-sample`
     2. Windows: `cd "D:\protractor-sample"`
 3. Run this command to install required node modules: `npm run setup`
+4. Keep the Terminal (or Command Prompt open) and move on to the next step
 
 ## Run Protractor test from command line
 This step is to verify you can run Protractor test from command line before integrating it with Universal Agent.
 
 ### Start WebDriver 
-Still on Terminal, run this command to start WebDriver: `npm run start-webdriver`
+From Terminal/Command Prompt, fire this command to start WebDriver: `npm run start-webdriver`
 
 ### Execute Protractor test
 1. Open another Terminal (or Command Prompt) window
