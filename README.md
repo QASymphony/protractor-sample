@@ -5,7 +5,8 @@ This repo demonstrates how to integrate Protrator with qTest Automation Host's U
 1. Git
 2. NodeJS 12+
 3. Protractor is installed globally via `npm install -g protractor`. After installation, check that protractor is working using command `protractor --version`
-4. Clone this source code to your local machine at
+4. Update webdriver via this command `webdriver-manager update`
+5. Clone this source code to your local machine at
     1. Mac or Linux: `/usr/local/var/protractor-sample`
     2. Windows: `D:\protractor-sample`
 
