@@ -143,23 +143,24 @@ waitForWebDriverReady(webDriverRequestOptions, (ready) => {
         if (testcaseIncludingSpecnames.length > 0) {
 	  // this array will hold final test cases
           let testcaseNamesOnly = [];
-	  // loop thru all item in the array, and grab the test case bame in it
+	  // loop thru all items in the array, and grab the test case names in it
           testcaseIncludingSpecnames.forEach(item => {
             item = item.trim();
             let i = item.indexOf('#');
             if (i > 0) {
               // extract test case name
               let testcaseName = item.substring(i + 1).trim();
-              // push test case name to the array
+              // push test case name into the array
               testcaseNamesOnly.push(testcaseName);
             }
           });
-          // if there are test case names in the arracy, rebuild the execute command to execute them
+          // if there are test case names in the array, rebuild the execute command
           if (testcaseNamesOnly.length > 0) {
             testCommand += ' -- --grep="' + testcaseNamesOnly.join('|') + '"';
           }
         }
       }
+      // execute test command
       execSync(testCommand, {
         cwd: process.cwd(),
         stdio: 'inherit'
